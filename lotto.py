@@ -3,15 +3,12 @@ import numpy as np
 from numpy import genfromtxt
 
 numSet = range(1, 46)
-data = []
 
 def read_data():
-    global data
-    data = genfromtxt('lodata.csv', delimiter=',', dtype=int)
+    return genfromtxt('lodata.csv', delimiter=',', dtype=int)
 
 
 def getRandCount(toCompare):
-    nums = numSet[:]
     popped = []
     count = 0
     while(not np.array_equal(toCompare, popped)):
@@ -26,6 +23,6 @@ def getRandCount(toCompare):
 
 
 if __name__ == '__main__':
-    read_data()
+    data = read_data()
     count = getRandCount(data[0])
     print count
